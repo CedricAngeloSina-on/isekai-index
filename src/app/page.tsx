@@ -6,24 +6,24 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { getSeasonNowAllData } from "../utils/getSeasonNowAllData";
 
 export default async function Home() {
-    let data = await fetch(
-        "https://api.jikan.moe/v4/anime?genres=24&page=1&limit=1"
-    );
-    let json = await data.json();
+    let data = await getSeasonNowAllData();
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <Card>
                 <CardHeader>
-                    <CardTitle>Isekai Index</CardTitle>
+                    <CardTitle>Isekai'D</CardTitle>
                     <CardDescription>
                         The Database for Isekai Degens
                     </CardDescription>
                 </CardHeader>
             </Card>
-            <p>{JSON.stringify(json)}</p>
+            <div className="container text-balance">
+                <p>{JSON.stringify(data)}</p>
+            </div>
         </main>
     );
 }
