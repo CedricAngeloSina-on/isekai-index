@@ -1,7 +1,6 @@
 interface JikanSeasonData {
     mal_id: number;
     url: string;
-    title: string;
     images: {
         jpg: {
             image_url: "string";
@@ -9,7 +8,24 @@ interface JikanSeasonData {
             large_image_url: "string";
         };
     };
+    trailer: {
+        youtube_id: "string";
+        url: "string";
+        embed_url: "string";
+    };
+    title: string;
+    title_english: string;
+    title_japanese: string;
+    synopsis: "string";
     themes: [];
+    studios: [
+        {
+            mal_id: number;
+            type: "string";
+            name: "string";
+            url: "string";
+        },
+    ];
 }
 
 interface Pagination {
@@ -50,8 +66,6 @@ async function getSeasonNowAllData(): Promise<JikanSeasonData[]> {
 
         allData.push(...data.data);
         page++;
-
-
     }
 
     return allData;

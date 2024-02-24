@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+
+import Image from "next/image";
 import {
     Card,
     CardContent,
@@ -7,8 +10,6 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { getSeasonNowAllData } from "../utils/getSeasonNowAllData";
-import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default async function Home() {
     let data = await getSeasonNowAllData();
@@ -33,26 +34,36 @@ export default async function Home() {
                             key={index}
                             className="h-flex-row flex h-[250px] w-[450px] items-center border-primary bg-gray-800"
                         >
-                            <div className="relative h-full w-5/12 ">
+                            <div className="relative h-full w-5/12 overflow-hidden">
                                 <Image
                                     src={entry.images.jpg.image_url}
-                                    alt="Picture of the author"
+                                    alt={entry.title + " Cover image"}
+                                    sizes="500"
                                     fill
-                                    className="rounded-bl rounded-tl object-fill"
+                                    className="absolute inset-0 rounded-bl rounded-tl object-fill"
+                                    priority
                                 />
+                                <div className="absolute bottom-0 left-0 z-10 w-full bg-gray-800 bg-opacity-80">
+                                    <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
+                                        <p>{entry.title}</p>
+                                    </CardContent>
+                                    <CardContent className="p-2 text-xs font-semibold tracking-tight text-slate-200">
+                                        <p>{entry.studios[0].name}</p>
+                                    </CardContent>
+                                </div>
                             </div>
-                            <div className="text-md h-full w-7/12">
-                                <CardContent className=" font-medium leading-tight tracking-tight text-slate-200">
-                                    <p>{entry.title}</p>
+                            <div className="text-md h-full w-7/12 text-slate-400 transition duration-300 ease-in-out hover:text-slate-300">
+                                <CardContent className="text-xs">
+                                    <p className="line-clamp-6 hover:line-clamp-none">
+                                        {entry.synopsis}
+                                    </p>
                                 </CardContent>
                                 <CardContent>
-                                    <p>Card Content</p>
-                                </CardContent>
-                                <CardContent>
-                                    <p>Card Content</p>
-                                </CardContent>
-                                <CardContent>
-                                    <p>Card Content</p>
+                                    <Suspense
+                                        fallback={<p>Loading video...</p>}
+                                    >
+                                        <iframe src={entry.trailer.url} />
+                                    </Suspense>
                                 </CardContent>
                             </div>
                         </Card>
