@@ -7,7 +7,6 @@ async function getSeasonNowAllData() {
             `https://api.jikan.moe/v4/seasons/now?page=${page}`
         );
         const json = await response.json();
-
         if (
             !json.pagination.has_next_page &&
             json.pagination.current_page != json.pagination.last_visible_page
@@ -15,11 +14,11 @@ async function getSeasonNowAllData() {
             break;
         }
 
-        allData.push(json);
+        allData.push(json.data);
         page++;
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 400));
     }
-    return allData;
+    return allData.flat();
 }
 
 export { getSeasonNowAllData };
