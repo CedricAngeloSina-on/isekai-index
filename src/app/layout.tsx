@@ -3,7 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Isekai'D",
+    title: "Isekai'Dex",
     description:
         "This website uses the Jikan API (Unofficial MyAnimeList API) to visualize anime that exclusively has the isekai theme",
 };
@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={GeistSans.className}>{children}</body>
+            <body className={`${GeistSans.className} bg-slate-900`}>
+                {children}
+            </body>
         </html>
     );
 }
