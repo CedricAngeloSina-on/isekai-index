@@ -1,4 +1,4 @@
-interface JikanSeasonData {
+type JikanSeasonData = {
     mal_id: number;
     url: string;
     images: {
@@ -26,9 +26,9 @@ interface JikanSeasonData {
             url: "string";
         },
     ];
-}
+};
 
-interface Pagination {
+type Pagination = {
     last_visible_page: number;
     has_next_page: boolean;
     current_page: number;
@@ -37,7 +37,7 @@ interface Pagination {
         total: number;
         per_page: number;
     };
-}
+};
 
 async function getSeasonNowAllData(): Promise<JikanSeasonData[]> {
     const allData: JikanSeasonData[] = [];
