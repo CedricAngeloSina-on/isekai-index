@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={GeistSans.className}>{children}</body>
+            <body className={`${GeistSans.className} bg-slate-900`}>
+                {children}
+            </body>
         </html>
     );
 }
