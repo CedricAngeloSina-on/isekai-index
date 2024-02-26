@@ -12,7 +12,7 @@ export default async function Home() {
                     )
                 )
                 .map((entry, index) => (
-                    <AnimeCard
+                    <AnimeCard key={index}
                         cover_image={entry.images.jpg.image_url}
                         cover_image_alt={entry.title + " Cover image"}
                         title={entry.title}
