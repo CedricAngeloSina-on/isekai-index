@@ -3,9 +3,9 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Isekai'D",
+    title: "Isekai'Dex",
     description:
-        "Isekai'D uses the Jikan API (Unofficial MyAnimeList API) to show only isekai anime.",
+        "Isekai'Dex uses the Jikan API (Unofficial MyAnimeList API) to show only isekai anime.",
 };
 
 export default function RootLayout({
