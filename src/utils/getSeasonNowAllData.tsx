@@ -3,27 +3,41 @@ type JikanSeasonData = {
     url: string;
     images: {
         jpg: {
-            image_url: "string";
-            small_image_url: "string";
-            large_image_url: "string";
+            image_url: string;
+            small_image_url: string;
+            large_image_url: string;
         };
     };
     trailer: {
-        youtube_id: "string";
-        url: "string";
-        embed_url: "string";
+        youtube_id: string;
+        url: string;
+        embed_url: string;
+        images: {
+            image_url: string;
+            small_image_url: string;
+            medium_image_url: string;
+            large_image_url: string;
+            maximum_image_url: string;
+        };
     };
     title: string;
     title_english: string;
     title_japanese: string;
-    synopsis: "string";
-    themes: [];
+    synopsis: string;
+    themes: [
+        {
+            mal_id: number;
+            type: string;
+            name: string;
+            url: string;
+        },
+    ];
     studios: [
         {
             mal_id: number;
-            type: "string";
-            name: "string";
-            url: "string";
+            type: string;
+            name: string;
+            url: string;
         },
     ];
 };

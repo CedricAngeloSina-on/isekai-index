@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import CardLoading from "./anime-season-list-skeleton";
+import CardLoading from "../components/loading-ui/anime-season-list-skeleton";
 import Image from "next/image";
 import {
     Card,
@@ -10,7 +10,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import AnimeSeasonList from "@/components/anime-season-list";
-import AnimeSeasonListSkeleton from "./anime-season-list-skeleton";
+import AnimeSeasonListSkeleton from "../components/loading-ui/anime-season-list-skeleton";
 
 export default function Home() {
     return (
