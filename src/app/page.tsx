@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import {
     Card,
     CardContent,
@@ -7,6 +8,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import AnimeSeasonList from "@/components/anime-season-list";
+import AnimeSeasonListSkeleton from "@/components/skeleton/anime-season-list-skeleton";
 
 export default async function Home() {
     return (
@@ -16,7 +18,9 @@ export default async function Home() {
                     <CardTitle>Isekai&apos;Dex</CardTitle>
                 </CardHeader>
             </Card>
-            <AnimeSeasonList />
+            <Suspense fallback={<AnimeSeasonListSkeleton />}>
+                <AnimeSeasonList />
+            </Suspense>
         </main>
     );
 }
