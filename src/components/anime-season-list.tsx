@@ -16,8 +16,8 @@ export default async function AnimeSeasonList() {
                     <AnimeCard
                         key={index}
                         cover_image={entry.images.jpg.image_url}
-                        cover_image_alt={entry.title + " Cover image"}
-                        title={entry.title}
+                        cover_image_alt={entry.titles[0].title + " Cover image"}
+                        title={entry.titles[0].title}
                         studio_name={entry.studios[0].name}
                         synopsis={entry.synopsis}
                     ></AnimeCard>

@@ -20,9 +20,12 @@ type JikanSeasonData = {
             maximum_image_url: string;
         };
     };
-    title: string;
-    title_english: string;
-    title_japanese: string;
+    titles: [
+        {
+            type: string;
+            title: string;
+        },
+    ];
     synopsis: string;
     themes: [
         {
