@@ -28,7 +28,7 @@ export default async function AnimeCard(props: AnimeCardProps) {
                     className="absolute inset-0 rounded-bl rounded-tl object-fill"
                     priority
                 />
-                <div className="absolute bottom-0 left-0 z-10 w-full bg-gray-800 bg-opacity-80">
+                <div className="absolute bottom-0 left-0 z-10 w-full bg-gray-800 bg-opacity-90">
                     <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
                         <p>{props.title}</p>
                     </CardContent>
