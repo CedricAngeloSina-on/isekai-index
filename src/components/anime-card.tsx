@@ -42,7 +42,7 @@ export default async function AnimeCard(props: AnimeCardProps) {
                     sizes="500px"
                     fill
                     className="absolute inset-0 rounded-bl rounded-tl object-fill"
-                    priority
+                    loading="lazy"
                 />
                 <div className="absolute bottom-0 left-0 z-10 w-full bg-gray-800 bg-opacity-80">
                     <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
