@@ -1,3 +1,5 @@
+"use client";
+import React, { useRef } from "react";
 import Image from "next/image";
 import {
     Card,
@@ -17,13 +19,27 @@ type AnimeCardProps = {
 };
 
 export default async function AnimeCard(props: AnimeCardProps) {
+    const hoverRef = useRef(false);
+    const contentRef = useRef<HTMLParagraphElement | null>(null);
+
+    const handleHover = (hovered: boolean): void => {
+        hoverRef.current = hovered;
+        if (!hovered) {
+            // Reset the scroll position
+            const element = contentRef.current;
+            if (element) {
+                element.scrollTop = 0;
+            }
+        }
+    };
+
     return (
         <Card className="h-flex-row flex h-[250px] w-[450px] items-center border-primary bg-gray-800">
             <div className="relative h-full w-5/12 overflow-hidden">
                 <Image
                     src={props.cover_image}
                     alt={props.cover_image_alt + " Cover Image"}
-                    sizes="500"
+                    sizes="500px"
                     fill
                     className="absolute inset-0 rounded-bl rounded-tl object-fill"
                     priority
@@ -37,29 +53,18 @@ export default async function AnimeCard(props: AnimeCardProps) {
                     </CardContent>
                 </div>
             </div>
-
             <div className="text-md h-full w-7/12 text-slate-400 transition duration-300 ease-in-out hover:text-slate-300">
-                <CardContent className="h-32 overflow-hidden px-3 pt-3 text-xs hover:overflow-auto">
-                    <p className="line-clamp-6 hover:line-clamp-none">
+                <CardContent className="overflow-hidden px-3 pt-3 text-xs">
+                    <p
+                        ref={contentRef}
+                        className={`line-clamp-6 h-32 scroll-smooth transition-all duration-1000 ease-in-out hover:overflow-auto ${
+                            hoverRef.current ? "line-clamp-none" : ""
+                        }`}
+                        onMouseEnter={() => handleHover(true)}
+                        onMouseLeave={() => handleHover(false)}
+                    >
                         {props.synopsis}
                     </p>
-                </CardContent>
-
-                <CardContent className="relative h-36 w-full">
-                    {/* <Image
-                                    src={
-                                        "https://img.youtube.com/vi/" +
-                                        entry.trailer.youtube_id +
-                                        "/mqdefault.jpg"
-                                    }
-                                    alt={
-                                        entry.trailer.youtube_id +
-                                        " Youtube Thumbnail"
-                                    }
-                                    sizes="500"
-                                    fill
-                                    className="absolute inset-0 rounded-bl rounded-tl object-contain"
-                                /> */}
                 </CardContent>
             </div>
         </Card>
