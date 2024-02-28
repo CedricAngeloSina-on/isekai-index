@@ -18,7 +18,7 @@ type AnimeCardProps = {
     synopsis: string;
 };
 
-export default async function AnimeCard(props: AnimeCardProps) {
+export default function AnimeCard(props: AnimeCardProps) {
     const hoverRef = useRef(false);
     const contentRef = useRef<HTMLParagraphElement | null>(null);
 
