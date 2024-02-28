@@ -56,7 +56,7 @@ type Pagination = {
     };
 };
 
-async function getSeasonNowAllData(): Promise<JikanSeasonData[]> {
+export async function getSeasonNowAllData(): Promise<JikanSeasonData[]> {
     const allData: JikanSeasonData[] = [];
     let page = 1;
 
@@ -81,11 +81,14 @@ async function getSeasonNowAllData(): Promise<JikanSeasonData[]> {
             break;
         }
 
-        allData.push(...data.data);
+        //filters isekai anime
+        data.data.forEach((anime) => {
+            if (anime.themes.some((theme) => theme.mal_id === 62)) {
+                allData.push(anime);
+            }
+        });
+
         page++;
     }
-
     return allData;
 }
-
-export { getSeasonNowAllData };
