@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import {
     Card,
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/card";
 
 type AnimeCardProps = {
+    mal_id: number;
     cover_image: string;
     cover_image_alt: string;
     title: string;
@@ -36,14 +38,17 @@ export default function AnimeCard(props: AnimeCardProps) {
     return (
         <Card className="h-flex-row flex h-[250px] w-[450px] items-center border-primary bg-gray-800">
             <div className="relative h-full w-5/12 overflow-hidden">
-                <Image
-                    src={props.cover_image}
-                    alt={props.cover_image_alt + " Cover Image"}
-                    sizes="500px"
-                    fill
-                    className="absolute inset-0 rounded-bl rounded-tl object-fill"
-                    loading="lazy"
-                />
+                <Link href={"/anime/" + props.mal_id}>
+                    {" "}
+                    <Image
+                        src={props.cover_image}
+                        alt={props.cover_image_alt + " Cover Image"}
+                        sizes="500px"
+                        fill
+                        className="absolute inset-0 rounded-bl rounded-tl object-fill"
+                        loading="lazy"
+                    />
+                </Link>
                 <div className="absolute bottom-0 left-0 z-10 w-full bg-gray-800 bg-opacity-80">
                     <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
                         <p>{props.title}</p>
