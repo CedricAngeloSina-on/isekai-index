@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const navItems = [
@@ -11,7 +12,6 @@ const buttons = [
     { key: 1, label: "Airing" },
     { key: 2, label: "Archive" },
     { key: 3, label: "TBA" },
-    { key: 4, label: "Settings" },
 ];
 
 function Navbar() {
@@ -42,13 +42,14 @@ function Navbar() {
 
             <div className="flex items-center justify-end">
                 {buttons.map(({ label, key }) => (
-                    <button
+                    <Link
                         key={key}
+                        href={"/" + label}
                         className="relative flex h-full items-center px-5 text-white hover:text-red-500"
                     >
                         {label}
                         <span className="absolute bottom-0 left-1/2 w-0 -translate-x-1/2 transform border-b-4 border-transparent bg-transparent transition duration-500"></span>
-                    </button>
+                    </Link>
                 ))}
             </div>
         </nav>
