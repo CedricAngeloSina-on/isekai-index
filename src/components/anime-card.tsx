@@ -10,7 +10,6 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-
 type AnimeCardProps = {
     mal_id: number;
     cover_image: string;
@@ -30,7 +29,10 @@ export default function AnimeCard(props: AnimeCardProps) {
             // Reset the scroll position
             const element = contentRef.current;
             if (element) {
-                element.scrollTop = 0;
+                element.scrollTo({
+                    top: 0,
+                    behavior: "smooth", // Add smooth scroll behavior
+                });
             }
         }
     };
@@ -58,11 +60,11 @@ export default function AnimeCard(props: AnimeCardProps) {
                     </CardContent>
                 </div>
             </div>
-            <div className="text-md h-full w-7/12 text-slate-400 transition duration-300 ease-in-out hover:text-slate-300">
+            <div className="text-md h-full w-7/12 ">
                 <CardContent className="overflow-hidden px-3 pt-3 text-xs">
                     <p
                         ref={contentRef}
-                        className={`line-clamp-6 h-32 scroll-smooth transition-all duration-1000 ease-in-out hover:overflow-auto ${
+                        className={`line-clamp-6 h-32 text-slate-400 transition duration-300 ease-in-out hover:overflow-auto hover:text-slate-300 ${
                             hoverRef.current ? "line-clamp-none" : ""
                         }`}
                         onMouseEnter={() => handleHover(true)}
