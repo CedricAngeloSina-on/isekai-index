@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
     title: "Isekai'Dex",
     description:
-        "This website uses the Jikan API (Unofficial MyAnimeList API) to visualize anime that exclusively has the isekai theme",
+        "Isekai'Dex uses the Jikan API (Unofficial MyAnimeList API) to show only isekai anime.",
 };
 
 export default function RootLayout({
