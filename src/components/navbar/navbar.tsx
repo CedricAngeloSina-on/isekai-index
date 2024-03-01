@@ -1,12 +1,6 @@
 import Link from "next/link";
 import React from "react";
-
-const seasons = [
-    { key: 1, season: "winter" },
-    { key: 2, season: "spring" },
-    { key: 3, season: "summer" },
-    { key: 4, season: "fall" },
-];
+import SeasonLinks from "@/components/navbar/season-links";
 
 const buttons = [
     { key: 1, label: "Airing" },
@@ -22,23 +16,7 @@ function Navbar() {
                     <span className="text-base">いせかい</span>
                 </div>
 
-                <ul className="flex w-full justify-center pt-10">
-                    {seasons.map(({ key, season }) => (
-                        <Link href={"/" + season}>
-                            <li
-                                key={key}
-                                className="flex w-fit flex-col items-center px-4 py-0 text-slate-400 first-line:p-5 hover:text-slate-200"
-                            >
-                                <p className="text-base font-semibold capitalize leading-tight tracking-wider">
-                                    {season}
-                                </p>
-                                <p className="text-xs font-medium tracking-wide">
-                                    2024
-                                </p>
-                            </li>
-                        </Link>
-                    ))}
-                </ul>
+                <SeasonLinks />
 
                 <div className="flex justify-end">
                     {buttons.map(({ label, key }) => (
