@@ -21,37 +21,31 @@ type AnimeCardProps = {
 
 export default function AnimeCard(props: AnimeCardProps) {
     const hoverRef = useRef(false);
-    const contentRef = useRef<HTMLParagraphElement | null>(null);
+    const contentRef = useRef<HTMLParagraphElement>(null);
 
     const handleHover = (hovered: boolean): void => {
         hoverRef.current = hovered;
-        if (!hovered) {
-            // Reset the scroll position
-            const element = contentRef.current;
-            if (element) {
-                element.scrollTo({
-                    top: 0,
-                    behavior: "smooth", // Add smooth scroll behavior
-                });
-            }
+
+        // Reset scroll position if not hovered
+        if (!hovered && contentRef.current) {
+            contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
 
     return (
-        <Card className="h-flex-row flex h-[250px] w-[450px] items-center border-primary bg-gray-800">
+        <Card className="h-flex-row flex h-[250px] w-[450px] items-center border-primary bg-slate-800">
             <div className="relative h-full w-5/12 overflow-hidden">
-                <Link href={"/anime/" + props.mal_id}>
-                    {" "}
+                <Link href={"/" + props.mal_id} className="absolute inset-0">
                     <Image
                         src={props.cover_image}
                         alt={props.cover_image_alt + " Cover Image"}
                         sizes="500px"
                         fill
-                        className="absolute inset-0 rounded-bl rounded-tl object-fill"
+                        className="absolute inset-0 rounded-bl-lg rounded-tl-lg object-fill"
                         loading="lazy"
                     />
                 </Link>
-                <div className="absolute bottom-0 left-0 z-10 w-full bg-gray-800 bg-opacity-80">
+                <div className="absolute bottom-0 left-0 z-10 w-full rounded-bl-lg bg-slate-800 bg-opacity-80">
                     <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
                         <p>{props.title}</p>
                     </CardContent>
