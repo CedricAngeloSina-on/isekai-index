@@ -40,19 +40,20 @@ export default function AnimeCard(props: AnimeCardProps) {
                         src={props.cover_image}
                         alt={props.cover_image_alt + " Cover Image"}
                         sizes="500px"
+                        quality={100}
                         fill
                         className="absolute inset-0 rounded-bl-lg rounded-tl-lg object-fill"
                         loading="lazy"
                     />
+                    <div className="absolute bottom-0 left-0 z-10 w-full rounded-bl-lg bg-slate-800 bg-opacity-80">
+                        <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
+                            <p>{props.title}</p>
+                        </CardContent>
+                        <CardContent className="p-2 text-xs font-semibold tracking-tight text-slate-200">
+                            <p>{props.studio_name}</p>
+                        </CardContent>
+                    </div>
                 </Link>
-                <div className="absolute bottom-0 left-0 z-10 w-full rounded-bl-lg bg-slate-800 bg-opacity-80">
-                    <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
-                        <p>{props.title}</p>
-                    </CardContent>
-                    <CardContent className="p-2 text-xs font-semibold tracking-tight text-slate-200">
-                        <p>{props.studio_name}</p>
-                    </CardContent>
-                </div>
             </div>
             <div className="text-md h-full w-7/12 ">
                 <CardContent className="overflow-hidden px-3 pt-3 text-xs">
