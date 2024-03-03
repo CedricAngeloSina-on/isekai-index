@@ -1,28 +1,35 @@
+"use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function SeasonLinks() {
+    const pathname = usePathname();
+
     const currentYear = new Date().getFullYear();
     const lastYear = currentYear - 1;
     const seasons = [
-        { name: "winter", year: currentYear },
-        { name: "spring", year: currentYear },
-        { name: "summer", year: currentYear },
-        { name: "fall", year: lastYear },
+        { year: currentYear, name: "winter" },
+        { year: currentYear, name: "spring" },
+        { year: currentYear, name: "summer" },
+        { year: lastYear, name: "fall" },
     ];
 
     return (
-        <ul className="flex w-full justify-center pt-10">
+        <ul className="flex h-fit w-full justify-center">
             {seasons.map((season, index) => (
                 <li
                     key={index}
-                    className="flex w-fit flex-col items-center px-4 py-0 text-slate-400 first-line:p-5 hover:text-slate-200"
+                    className="flex flex-col items-center px-4 py-0 text-slate-400 hover:text-slate-200"
                 >
-                    <Link href={"/" + season.name}>
+                    <Link
+                        href={"/" + season.year + "/" + season.name}
+                        className={`flex flex-col items-center ${pathname === `/${season.year}/${season.name.toLowerCase()}` ? "active text-white" : ""}`}
+                    >
                         <p className="flex justify-center text-base font-semibold capitalize leading-tight tracking-wider">
                             {season.name}
                         </p>
                         <p className="flex justify-center text-xs font-medium tracking-wide">
-                            2024
+                            {season.year}
                         </p>
                     </Link>
                 </li>
