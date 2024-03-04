@@ -10,6 +10,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 type AnimeCardProps = {
     mal_id: number;
     cover_image: string;
@@ -17,6 +18,12 @@ type AnimeCardProps = {
     title: string;
     studio_name: string;
     synopsis: string;
+    genres: {
+        mal_id: number;
+        type: string;
+        name: string;
+        url: string;
+    }[];
 };
 
 export default function AnimeCard(props: AnimeCardProps) {
@@ -58,7 +65,7 @@ export default function AnimeCard(props: AnimeCardProps) {
                     </div>
                 </Link>
             </div>
-            <div className="text-md h-full w-7/12 ">
+            <div className="text-md relative h-full w-7/12">
                 <CardContent className="overflow-hidden px-3 pt-3 text-xs">
                     <p
                         ref={contentRef}
@@ -70,6 +77,17 @@ export default function AnimeCard(props: AnimeCardProps) {
                     >
                         {props.synopsis}
                     </p>
+                </CardContent>
+                <CardContent className="absolute bottom-0 flex w-full space-x-2 rounded-br-lg bg-slate-700 p-1 pl-2">
+                    {props.genres.slice(0, 3).map((genre, index) => (
+                        <Badge
+                            key={index} // Unique key for React to efficiently update and re-render components
+                            variant="outline" // Badge variant, possibly specifying an outline style
+                            className="border-sky-500 bg-sky-500 py-0 font-medium text-slate-200" // CSS classes for styling
+                        >
+                            {genre.name}
+                        </Badge>
+                    ))}
                 </CardContent>
             </div>
         </Card>

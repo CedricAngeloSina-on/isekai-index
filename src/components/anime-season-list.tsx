@@ -21,6 +21,7 @@ export default async function AnimeSeasonList({
                     title={entry.titles[0].title}
                     studio_name={entry.studios[0].name}
                     synopsis={entry.synopsis}
+                    genres={entry.genres}
                 ></AnimeCard>
             ))}
         </div>
