@@ -64,4 +64,10 @@ export type Anime = {
         name: string;
         url: string;
     }[];
+    genres: {
+        mal_id: number;
+        type: string;
+        name: string;
+        url: string;
+    }[];
 };
