@@ -35,7 +35,10 @@ export default function AnimeCard(props: AnimeCardProps) {
     return (
         <Card className="h-flex-row flex h-[250px] w-[450px] items-center border-primary bg-slate-800">
             <div className="relative h-full w-5/12 overflow-hidden">
-                <Link href={"/" + props.mal_id} className="absolute inset-0">
+                <Link
+                    href={"/anime/" + props.mal_id}
+                    className="absolute inset-0"
+                >
                     <Image
                         src={props.cover_image}
                         alt={props.cover_image_alt + " Cover Image"}
@@ -46,7 +49,7 @@ export default function AnimeCard(props: AnimeCardProps) {
                         loading="lazy"
                     />
                     <div className="absolute bottom-0 left-0 z-10 w-full rounded-bl-lg bg-slate-800 bg-opacity-80">
-                        <CardContent className="p-2 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
+                        <CardContent className="p-2 pb-0 text-sm font-semibold leading-tight tracking-tighter text-slate-300">
                             <p>{props.title}</p>
                         </CardContent>
                         <CardContent className="p-2 text-xs font-semibold tracking-tight text-slate-200">

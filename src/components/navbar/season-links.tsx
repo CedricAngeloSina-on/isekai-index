@@ -23,7 +23,7 @@ export default function SeasonLinks() {
                 >
                     <Link
                         href={"/" + season.year + "/" + season.name}
-                        className={`flex flex-col items-center ${pathname === `/${season.year}/${season.name.toLowerCase()}` ? "active text-white" : ""}`}
+                        className={`flex flex-col items-center ${pathname === `/${season.year}/${season.name.toLowerCase()}` ? "active text-slate-200" : ""}`}
                     >
                         <p className="flex justify-center text-base font-semibold capitalize leading-tight tracking-wider">
                             {season.name}
