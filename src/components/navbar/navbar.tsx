@@ -3,12 +3,6 @@ import React from "react";
 import SeasonLinks from "@/components/navbar/season-links";
 import Menu from "@/components/navbar/menu";
 
-const buttons = [
-    { key: 1, label: "Airing" },
-    { key: 2, label: "Archive" },
-    { key: 3, label: "TBA" },
-];
-
 function Navbar() {
     return (
         <div className="flex flex-col items-center justify-between">
