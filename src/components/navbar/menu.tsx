@@ -22,8 +22,8 @@ export default function Menu() {
     ];
 
     return (
-        <nav className="flex w-full justify-center">
-            <ul className="flex h-fit w-full justify-center">
+        <nav className="flex h-fit w-full justify-center">
+            <ul className="flex w-full justify-center">
                 {links.map((link, index) => (
                     <li
                         key={index}
