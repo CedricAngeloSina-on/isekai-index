@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -27,16 +27,20 @@ type AnimeCardProps = {
 };
 
 export default function AnimeCard(props: AnimeCardProps) {
-    const hoverRef = useRef(false);
     const contentRef = useRef<HTMLParagraphElement>(null);
+    const [isExpanded, setIsExpanded] = useState(false);
 
-    const handleHover = (hovered: boolean): void => {
-        hoverRef.current = hovered;
+    const handleHoverEnter = () => {
+        setIsExpanded(true);
+    };
 
-        // Reset scroll position if not hovered
-        if (!hovered && contentRef.current) {
-            contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    const handleHoverLeave = () => {
+        if (!contentRef.current || contentRef.current.scrollTop >= 10) {
+            contentRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+            setTimeout(() => setIsExpanded(false), 250);
+            return;
         }
+        setIsExpanded(false);
     };
 
     return (
@@ -66,24 +70,34 @@ export default function AnimeCard(props: AnimeCardProps) {
                 </Link>
             </div>
             <div className="text-md relative h-full w-7/12">
-                <CardContent className="overflow-hidden px-3 pt-3 text-xs">
-                    <p
-                        ref={contentRef}
-                        className={`line-clamp-6 h-32 text-slate-400 transition duration-300 ease-in-out hover:overflow-auto hover:text-slate-300 ${
-                            hoverRef.current ? "line-clamp-none" : ""
-                        }`}
-                        onMouseEnter={() => handleHover(true)}
-                        onMouseLeave={() => handleHover(false)}
-                    >
-                        {props.synopsis}
-                    </p>
+                <CardContent
+                    ref={contentRef}
+                    onMouseEnter={handleHoverEnter}
+                    onMouseLeave={handleHoverLeave}
+                    className="group absolute top-0 h-[85%] overflow-hidden px-3 pb-0 pt-3 text-xs text-slate-400 hover:overflow-auto"
+                    style={{
+                        scrollbarGutter: "stable",
+                    }}
+                >
+                    <div className="">
+                        <div className="h-20 pb-2">
+                            <p>{props.title}</p>
+                        </div>
+                        <p
+                            className={`text-left text-slate-400 transition-all duration-300 ease-in-out ${
+                                isExpanded ? "line-clamp-none" : "line-clamp-3"
+                            }`}
+                        >
+                            {props.synopsis}
+                        </p>
+                    </div>
                 </CardContent>
-                <CardContent className="absolute bottom-0 flex w-full space-x-2 rounded-br-lg bg-slate-700 p-1 pl-2">
+                <CardContent className="absolute bottom-0 flex h-[15%] w-full space-x-2 rounded-br-lg bg-slate-700 p-2">
                     {props.genres.slice(0, 3).map((genre, index) => (
                         <Badge
                             key={index} // Unique key for React to efficiently update and re-render components
                             variant="outline" // Badge variant, possibly specifying an outline style
-                            className="border-sky-500 bg-sky-500 py-0 font-medium text-slate-200" // CSS classes for styling
+                            className="border-sky-500 bg-sky-500 px-2 py-0 font-semibold lowercase text-slate-200" // CSS classes for styling
                         >
                             {genre.name}
                         </Badge>
