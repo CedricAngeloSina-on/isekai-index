@@ -61,7 +61,7 @@ export default function AnimeCard(props: Anime) {
                     </div>
                 </Link>
             </div>
-            <div className="text-md group relative h-full w-7/12 text-slate-400 transition-all duration-500 ease-in-out hover:text-slate-200">
+            <div className="text-md group relative h-full w-7/12  text-slate-400 transition-all duration-500 ease-in-out hover:text-slate-200">
                 <CardContent
                     ref={contentRef}
                     onMouseEnter={handleHoverEnter}
@@ -113,7 +113,7 @@ export default function AnimeCard(props: Anime) {
                                                 className="absolute w-full object-cover brightness-50"
                                                 loading="lazy"
                                             />
-                                            <PlayCircle className="absolute text-slate-400 transition duration-200 ease-in-out group-hover:text-slate-200" />
+                                            <PlayCircle className="absolute text-slate-400 transition duration-500 ease-in-out group-hover:text-slate-200" />
                                         </Link>
                                     </div>
                                 )}
