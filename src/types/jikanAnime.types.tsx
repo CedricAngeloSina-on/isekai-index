@@ -26,7 +26,10 @@ export type Anime = {
         };
     };
     approved: boolean;
-    titles: { type: string; title: string }[];
+    titles: {
+        type: string;
+        title: string;
+    }[];
     title: string; //deprecated
     title_english: string; //deprecated
     title_japanese: string; //deprecated
@@ -40,8 +43,16 @@ export type Anime = {
         from: string;
         to: string;
         prop: {
-            form: { day: number; month: number; year: number };
-            to: { day: number; month: number; year: number };
+            form: {
+                day: number;
+                month: number;
+                year: number;
+            };
+            to: {
+                day: number;
+                month: number;
+                year: number;
+            };
             string: string;
         };
     };
@@ -52,6 +63,12 @@ export type Anime = {
     rank: number;
     popularity: number;
     synopsis: string;
+    broadcast: {
+        day: string;
+        time: string;
+        timezone: string;
+        string: string;
+    };
     themes: {
         mal_id: number;
         type: string;
