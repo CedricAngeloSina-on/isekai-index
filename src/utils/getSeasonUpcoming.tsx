@@ -3,21 +3,13 @@ import { JikanResponse } from "@/types/jikanResponse.types";
 
 import filterIsekaiAnime from "./filterIsekaiAnime";
 
-type SeasonParams = {
-    year: number;
-    season: string;
-};
-
-export async function getSeasonAllData({
-    year,
-    season,
-}: SeasonParams): Promise<Anime[]> {
+export async function getSeasonUpcoming(): Promise<Anime[]> {
     const allData: Anime[] = [];
     let page = 1;
 
     while (true) {
         const response = await fetch(
-            `https://api.jikan.moe/v4/seasons/${year}/${season}?page=${page}`
+            `https://api.jikan.moe/v4/seasons/upcoming?page=${page}`
         );
 
         const data = (await response.json()) as JikanResponse<Anime[]>;
