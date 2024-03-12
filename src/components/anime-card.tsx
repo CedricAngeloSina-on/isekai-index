@@ -34,7 +34,7 @@ export default function AnimeCard(props: Anime) {
     };
 
     return (
-        <Card className="h-flex-row flex aspect-video h-[261px] w-[464px] items-center border-primary bg-slate-800">
+        <Card className="h-flex-row flex aspect-video h-[252px] w-[448px] items-center border-primary bg-slate-800">
             <div className="relative h-full w-5/12 overflow-hidden">
                 <Link
                     href={"/anime/" + props.mal_id}
@@ -42,7 +42,7 @@ export default function AnimeCard(props: Anime) {
                 >
                     <Image
                         src={props.images.webp.large_image_url}
-                        alt={props.title + " Cover Image"}
+                        alt={props.titles[0].title + " Cover Image"}
                         sizes="20vw"
                         quality={100}
                         fill
@@ -51,7 +51,7 @@ export default function AnimeCard(props: Anime) {
                     />
                     <div className="absolute bottom-0 left-0 z-10 w-full rounded-bl-lg bg-slate-800 bg-opacity-80">
                         <CardContent className="p-2 pb-0 text-sm font-semibold leading-tight tracking-tight text-slate-300">
-                            <p>{props.title}</p>
+                            <p>{props.titles[0].title}</p>
                         </CardContent>
                         <CardContent className="p-2 text-xs font-semibold tracking-tight text-sky-500">
                             {props.studios.length > 0 && (
@@ -61,12 +61,12 @@ export default function AnimeCard(props: Anime) {
                     </div>
                 </Link>
             </div>
-            <div className="text-md group relative h-full w-7/12  text-slate-400 transition-all duration-500 ease-in-out hover:text-slate-200">
+            <div className="text-md group relative h-full w-7/12 text-slate-400 transition-all duration-500 ease-in-out hover:text-slate-200">
                 <CardContent
                     ref={contentRef}
                     onMouseEnter={handleHoverEnter}
                     onMouseLeave={handleHoverLeave}
-                    className="absolute top-0 h-[85%] overflow-hidden px-3 pb-0 pt-3 text-xs hover:overflow-auto"
+                    className="absolute top-0 h-[85%] w-full overflow-hidden px-3 pb-0 pt-3 text-xs hover:overflow-auto"
                     style={{
                         scrollbarGutter: "stable",
                     }}
