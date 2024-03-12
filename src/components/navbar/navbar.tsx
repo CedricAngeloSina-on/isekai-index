@@ -1,20 +1,15 @@
-import Link from "next/link";
-import React from "react";
+import Logo from "@/components/navbar/logo";
 import SeasonLinks from "@/components/navbar/season-links";
 import Menu from "@/components/navbar/menu";
 
-function Navbar() {
+export default function Navbar() {
     return (
-        <div className="flex flex-col items-center justify-between">
-            <div className="grid h-56 w-full grid-cols-1 gap-4 bg-gray-700 pt-10 sm:grid-cols-2 md:grid-cols-3">
-                <div className="">
-                    <span className="text-base">いせかい</span>
-                </div>
+        <div className="flex flex-col items-center justify-between bg-gray-700 px-0">
+            <div className="container mx-0 grid h-56 w-full grid-cols-1 gap-4 px-3 pt-10 sm:grid-cols-2 md:grid-cols-3">
+                <Logo />
                 <SeasonLinks />
                 <Menu />
             </div>
         </div>
     );
 }
-
-export default Navbar;
