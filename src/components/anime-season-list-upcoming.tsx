@@ -1,14 +1,8 @@
 import AnimeCard from "./anime-card";
-import { getSeason } from "../utils/getSeason";
+import { getSeasonUpcoming } from "@/utils/getSeasonUpcoming";
 
-export default async function AnimeSeasonList({
-    year,
-    season,
-}: {
-    year: number;
-    season: string;
-}) {
-    const animeData = await getSeason({ year, season });
+export default async function AnimeSeasonListUpcoming() {
+    const animeData = await getSeasonUpcoming();
 
     return (
         <div className="-mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
