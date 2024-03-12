@@ -1,5 +1,5 @@
 export type JikanResponse<AnimeData> = {
-    pagination: Pagination;
+    pagination?: Pagination;
     data: AnimeData;
 };
 

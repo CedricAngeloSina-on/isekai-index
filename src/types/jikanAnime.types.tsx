@@ -62,13 +62,22 @@ export type Anime = {
     scored_by: number;
     rank: number;
     popularity: number;
+    favorites: number;
     synopsis: string;
+    season: string;
+    year: number;
     broadcast: {
         day: string;
         time: string;
         timezone: string;
         string: string;
     };
+    producers: {
+        mal_id: number;
+        type: string;
+        name: string;
+        url: string;
+    }[];
     themes: {
         mal_id: number;
         type: string;
