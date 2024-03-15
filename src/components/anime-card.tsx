@@ -34,7 +34,7 @@ export default function AnimeCard(props: Anime) {
     };
 
     return (
-        <Card className="h-flex-row flex aspect-video h-[252px] w-[448px] items-center border-primary bg-slate-800">
+        <Card className="h-flex-row flex aspect-video h-[250px] w-[450px] items-center border-primary bg-slate-800">
             <div className="relative h-full w-5/12 overflow-hidden">
                 <Link
                     href={"/anime/" + props.mal_id}
