@@ -13,16 +13,18 @@ export default function AnimePage({
     params: { mal_id: number };
 }) {
     return (
-        <main className="container flex min-h-screen w-full flex-row bg-slate-900 px-3">
-            <Suspense fallback={<AnimeCoverImageAndInfoSkeleton />}>
-                <AnimeCoverImageAndInfo mal_id={params.mal_id} />
-            </Suspense>
-            <div className="relative flex h-auto w-full flex-col">
-                <Suspense fallback={<AnimeStatisticsAndSynopsisSkeleton />}>
-                    <AnimeStatisticsAndSynopsis mal_id={params.mal_id} />
+        <main className="min-h-screen w-full bg-slate-900">
+            <div className="container flex flex-row px-3">
+                <Suspense fallback={<AnimeCoverImageAndInfoSkeleton />}>
+                    <AnimeCoverImageAndInfo mal_id={params.mal_id} />
                 </Suspense>
-                <div className="h-auto w-full flex-col space-y-4 p-8 text-left text-slate-400">
-                    {children}
+                <div className="relative flex h-auto w-full flex-col">
+                    <Suspense fallback={<AnimeStatisticsAndSynopsisSkeleton />}>
+                        <AnimeStatisticsAndSynopsis mal_id={params.mal_id} />
+                    </Suspense>
+                    <div className="h-auto w-full flex-col space-y-4 p-8 text-left text-slate-400">
+                        {children}
+                    </div>
                 </div>
             </div>
         </main>
