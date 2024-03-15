@@ -62,6 +62,7 @@ export type Anime = {
     scored_by: number;
     rank: number;
     popularity: number;
+    members: number;
     favorites: number;
     synopsis: string;
     season: string;
