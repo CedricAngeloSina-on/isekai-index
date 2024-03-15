@@ -1,123 +1,30 @@
-import Image from "next/image";
-import { FormatDate, FormatDateRange } from "@/utils/dateFormatter";
-import { getAnimeByIDFull } from "@/utils/getAnimeByIDFull";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-export default async function AnimeDetails({
+import { Suspense } from "react";
+import AnimeCoverImageAndInfo from "@/components/anime/anime-cover-image-and-info";
+import AnimeStatisticsAndSynopsis from "@/components/anime/anime-statistics-and-synopsis";
+//skeletons
+import AnimeCoverImageAndInfoSkeleton from "@/components/skeleton/anime/anime-cover-image-and-info-skeleton";
+import AnimeStatisticsAndSynopsisSkeleton from "@/components/skeleton/anime/anime-statistics-and-synopsis-skeleton";
+
+export default function AnimePage({
     children,
     params,
 }: {
     children: React.ReactNode;
     params: { mal_id: number };
 }) {
-    const animeData = await getAnimeByIDFull(params.mal_id);
     return (
-        <main className="min-h-screen w-full bg-slate-900">
-            <section className="container relative flex h-auto flex-row px-3">
-                <div className="relative -mt-14 flex h-[360px] w-[290px] justify-start">
-                    <Image
-                        src={animeData.images.webp.large_image_url}
-                        alt={animeData.titles[0].title + "cover image"}
-                        sizes="500px"
-                        fill
-                        className="object-cover"
-                    />
-                </div>
-                <div className="flex h-auto w-11/12 flex-col space-y-4 p-8 text-left text-slate-400">
-                    <p className="text-2xl font-semibold">
-                        {animeData.titles[0].title}
-                    </p>
-                    <p className="text-sm">{animeData.synopsis}</p>
-                    <div className="absolute bottom-0 flex w-1/4 flex-row items-center justify-start space-x-10 text-sm text-slate-400">
-                        <p>Overview</p>
-                        <p>Characters</p>
-                        <p>Staff</p>
-                    </div>
-                </div>
-            </section>
-            <section className="container relative flex h-auto flex-row px-3">
-                <div className="relative flex w-[290px] flex-col justify-start">
-                    <Card className="mt-4 bg-slate-800 pt-4 text-slate-400">
-                        <CardContent>
-                            <p className="text-sm font-bold">Format</p>
-                            <p className="text-xs font-normal">
-                                {animeData.type}
-                            </p>
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Status</p>
-                            <p className="text-xs font-normal">
-                                {animeData.status}
-                            </p>
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Start Date</p>
-                            <p className="text-xs font-normal">
-                                {FormatDate(animeData.aired.from)}
-                            </p>
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Popularity</p>
-                            <p className="text-xs font-normal">
-                                {animeData.popularity}
-                            </p>
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Favorites</p>
-                            <p className="text-xs font-normal">
-                                {animeData.favorites}
-                            </p>
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Studios</p>
-                            {animeData.studios.length > 0 && (
-                                <p className="text-xs font-normal">
-                                    {animeData.studios[0].name}
-                                </p>
-                            )}
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Producers</p>
-                            {animeData.producers.length > 0 &&
-                                animeData.producers.map((producer, index) => (
-                                    <p
-                                        key={index}
-                                        className="text-xs font-normal"
-                                    >
-                                        {producer.name}
-                                    </p>
-                                ))}
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Source</p>
-                            <p className="text-xs font-normal">
-                                {animeData.source}
-                            </p>
-                        </CardContent>
-                        <CardContent>
-                            <p className="text-sm font-bold">Genres</p>
-                            {animeData.genres.length > 0 &&
-                                animeData.genres.map((genre, index) => (
-                                    <p
-                                        key={index}
-                                        className="text-xs font-normal"
-                                    >
-                                        {genre.name}
-                                    </p>
-                                ))}
-                        </CardContent>
-                    </Card>
-                </div>
-                <div className="flex h-auto w-11/12 flex-col space-y-4 p-8 text-left text-slate-400">
+        <main className="container flex min-h-screen w-full flex-row bg-slate-900 px-3">
+            <Suspense fallback={<AnimeCoverImageAndInfoSkeleton />}>
+                <AnimeCoverImageAndInfo mal_id={params.mal_id} />
+            </Suspense>
+            <div className="relative flex h-auto w-full flex-col">
+                <Suspense fallback={<AnimeStatisticsAndSynopsisSkeleton />}>
+                    <AnimeStatisticsAndSynopsis mal_id={params.mal_id} />
+                </Suspense>
+                <div className="h-auto w-full flex-col space-y-4 p-8 text-left text-slate-400">
                     {children}
                 </div>
-            </section>
+            </div>
         </main>
     );
 }

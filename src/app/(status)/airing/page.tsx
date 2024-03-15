@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import AnimeSeasonList from "@/components/anime-season-list";
-import AnimeSeasonListSkeleton from "@/components/skeleton/anime-season-list-skeleton";
+import AnimeSeasonListSkeleton from "@/components/skeleton/season/anime-season-list-skeleton";
 
 export default function Airing() {
     return (
