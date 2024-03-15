@@ -66,7 +66,7 @@ export default function AnimeCard(props: Anime) {
                     ref={contentRef}
                     onMouseEnter={handleHoverEnter}
                     onMouseLeave={handleHoverLeave}
-                    className="absolute top-0 h-[85%] w-full overflow-hidden px-3 pb-0 pt-3 text-xs hover:overflow-auto"
+                    className="anime-card-scroll absolute top-0 h-[85%] w-full overflow-hidden px-3 pb-0 pt-3 text-xs hover:overflow-auto"
                     style={{
                         scrollbarGutter: "stable",
                     }}
