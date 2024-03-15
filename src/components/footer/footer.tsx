@@ -8,14 +8,14 @@ export default function Footer() {
     return (
         <div className="flex flex-col items-center justify-between px-0">
             <div className="container mx-0 flex justify-between gap-4 px-3 pb-12 pt-10">
-                <div className="flex flex-row items-center space-x-4 text-gray-400">
+                <div className="flex flex-row items-center space-x-4">
                     <a
                         href="https://github.com/CedricAngeloSina-on/isekai-index"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Goes to Isekai'Dex Github Repository."
                     >
-                        <GitHubLogoIcon className="h-6 w-6" />
+                        <GitHubLogoIcon className="h-6 w-6 text-slate-400 hover:text-slate-200" />
                     </a>
                     <a
                         href="https://cedricsina-on.vercel.app/"
@@ -23,7 +23,7 @@ export default function Footer() {
                         rel="noreferrer"
                         aria-label="Goes to Isekai'Dex creator's portfolio website. (https://cedricsina-on.vercel.app Cedric Angelo Sina-on - Portfolio)"
                     >
-                        <GlobeIcon className="h-6 w-6" />
+                        <GlobeIcon className="h-6 w-6 text-slate-400 hover:text-slate-200" />
                     </a>
                     <a
                         href="https://discordapp.com/users/439861611780505620"
@@ -31,15 +31,15 @@ export default function Footer() {
                         rel="noreferrer"
                         aria-label="Goes to Isekai'Dex creator's Discord Account."
                     >
-                        <DiscordLogoIcon className="h-6 w-6" />
+                        <DiscordLogoIcon className="h-6 w-6 text-slate-400 hover:text-slate-200" />
                     </a>
                 </div>
-                <div className="max-w-md text-justify text-sm text-gray-400">
+                <div className="max-w-md text-justify text-sm text-slate-400">
                     <p>
                         Coded in{" "}
                         <a
                             href="https://code.visualstudio.com"
-                            className="font-medium text-gray-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -48,7 +48,7 @@ export default function Footer() {
                         , built with{" "}
                         <a
                             href="https://nextjs.org"
-                            className="font-medium text-gray-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -57,7 +57,7 @@ export default function Footer() {
                         ,{" "}
                         <a
                             href="https://tailwindcss.com"
-                            className="font-medium text-gray-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -66,7 +66,7 @@ export default function Footer() {
                         , and{" "}
                         <a
                             href="https://ui.shadcn.com"
-                            className="font-medium text-gray-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -75,7 +75,7 @@ export default function Footer() {
                         , and deployed with{" "}
                         <a
                             href="https://vercel.com"
-                            className="font-medium text-gray-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -84,7 +84,7 @@ export default function Footer() {
                         . All text is set in the{" "}
                         <a
                             href="https://vercel.com/font"
-                            className="font-medium text-gray-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
