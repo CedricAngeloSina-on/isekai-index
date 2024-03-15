@@ -19,8 +19,8 @@ export default async function AnimeStatisticsAndSynopsis({
                 <p className="text-3xl font-semibold">
                     {animeData.titles[0].title}
                 </p>
-                <div className="flex h-32 justify-between space-x-3">
-                    <div className="flex h-full w-4/5 flex-row items-center rounded bg-slate-800">
+                <div className="flex h-32 w-full justify-between space-x-3">
+                    <div className="flex h-full w-full min-w-min flex-row items-center rounded bg-slate-800">
                         <div className="flex h-full w-1/5 flex-col items-center justify-center space-y-1">
                             <Badge
                                 variant="outline"
@@ -29,7 +29,7 @@ export default async function AnimeStatisticsAndSynopsis({
                                 SCORE
                             </Badge>
                             <p className="text-4xl font-bold">
-                                {animeData.score}
+                                {animeData.score ? animeData.score : "N/A"}
                             </p>
                         </div>
                         <Separator
@@ -41,19 +41,25 @@ export default async function AnimeStatisticsAndSynopsis({
                                 <p>
                                     Ranked{" "}
                                     <span className="font-extrabold">
-                                        #{animeData.rank}
+                                        {animeData.rank
+                                            ? "#" + animeData.rank
+                                            : "N/A"}
                                     </span>
                                 </p>
                                 <p>
                                     Popularity{" "}
                                     <span className="font-extrabold">
-                                        #{animeData.popularity}
+                                        {animeData.popularity
+                                            ? "#" + animeData.popularity
+                                            : "N/A"}
                                     </span>
                                 </p>
                                 <p>
                                     Members{" "}
                                     <span className="font-extrabold">
-                                        {animeData.members}
+                                        {animeData.members
+                                            ? animeData.members
+                                            : "N/A"}
                                     </span>
                                 </p>
                             </div>
@@ -76,7 +82,7 @@ export default async function AnimeStatisticsAndSynopsis({
                             </div>
                         </div>
                     </div>
-                    <div className="group relative h-full w-1/5 items-center justify-center overflow-hidden rounded">
+                    <div className="group relative h-full w-72 items-center justify-center overflow-hidden rounded">
                         <Link
                             href={animeData.trailer.url}
                             className="absolute inset-0 flex items-center justify-center"
