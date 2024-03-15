@@ -11,7 +11,7 @@ export default function AnimeCardSkeleton() {
     return (
         <Card className="h-flex-row border-3 flex h-[252px] w-[448px] items-center bg-slate-800">
             <CardContent className="relative h-full w-5/12 animate-pulse overflow-hidden">
-                <div className="absolute inset-0 rounded-bl-lg rounded-tl-lg bg-slate-700 object-fill"></div>
+                <div className="absolute inset-0 rounded-bl-lg rounded-tl-lg bg-slate-700 object-cover"></div>
             </CardContent>
             <CardContent className="h-full w-7/12 space-y-1.5 px-3 pt-3">
                 <div className="h-20 w-full animate-pulse rounded bg-slate-700"></div>
