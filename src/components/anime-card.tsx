@@ -46,7 +46,7 @@ export default function AnimeCard(props: Anime) {
                         sizes="20vw"
                         quality={100}
                         fill
-                        className="absolute inset-0 rounded-bl-lg rounded-tl-lg object-fill"
+                        className="absolute inset-0 rounded-bl-lg rounded-tl-lg object-cover"
                         loading="lazy"
                     />
                     <div className="absolute bottom-0 left-0 z-10 w-full rounded-bl-lg bg-slate-800 bg-opacity-80">
@@ -138,7 +138,7 @@ export default function AnimeCard(props: Anime) {
                             <Badge
                                 key={index}
                                 variant="outline"
-                                className="border-sky-500 bg-sky-500 px-2 py-0 lowercase text-slate-200"
+                                className="border-sky-500 bg-sky-500 px-2 py-0 lowercase text-white"
                             >
                                 {genre.name}
                             </Badge>
