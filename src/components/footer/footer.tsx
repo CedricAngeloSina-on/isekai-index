@@ -6,7 +6,7 @@ import {
 
 export default function Footer() {
     return (
-        <div className="flex flex-col items-center justify-between px-0">
+        <div className="flex flex-col items-center justify-between bg-slate-900 px-0">
             <div className="container mx-0 flex justify-between gap-4 px-3 pb-12 pt-10">
                 <div className="flex flex-row items-center space-x-4">
                     <a
