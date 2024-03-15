@@ -119,7 +119,7 @@ export default function AnimeCard(props: Anime) {
                                 )}
                         </div>
                         <Separator className="bg-slate-400 group-hover:bg-slate-200 group-hover:transition-all group-hover:duration-500 group-hover:ease-in-out" />
-                        <div className="pt-4">
+                        <div className="py-2">
                             <p
                                 className={`text-left ${
                                     isExpanded
