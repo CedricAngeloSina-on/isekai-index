@@ -39,7 +39,7 @@ export default function Footer() {
                         Coded in{" "}
                         <a
                             href="https://code.visualstudio.com"
-                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -48,7 +48,7 @@ export default function Footer() {
                         , built with{" "}
                         <a
                             href="https://nextjs.org"
-                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -57,7 +57,7 @@ export default function Footer() {
                         ,{" "}
                         <a
                             href="https://tailwindcss.com"
-                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -66,7 +66,7 @@ export default function Footer() {
                         , and{" "}
                         <a
                             href="https://ui.shadcn.com"
-                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -75,7 +75,7 @@ export default function Footer() {
                         , and deployed with{" "}
                         <a
                             href="https://vercel.com"
-                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -84,7 +84,7 @@ export default function Footer() {
                         . All text is set in the{" "}
                         <a
                             href="https://vercel.com/font"
-                            className="font-medium text-slate-400 hover:text-sky-500 focus-visible:text-sky-500"
+                            className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
                         >
