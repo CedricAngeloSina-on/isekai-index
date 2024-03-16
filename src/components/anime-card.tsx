@@ -34,7 +34,7 @@ export default function AnimeCard(props: Anime) {
     };
 
     return (
-        <Card className="h-flex-row flex aspect-video h-[250px] w-[450px] items-center border-primary bg-slate-800">
+        <Card className="h-flex-row flex aspect-video h-[250px] w-[450px] items-center border-primary bg-slate-800 ring-1 ring-slate-700">
             <div className="relative h-full w-5/12 overflow-hidden">
                 <Link
                     href={"/anime/" + props.mal_id}
@@ -66,7 +66,7 @@ export default function AnimeCard(props: Anime) {
                     ref={contentRef}
                     onMouseEnter={handleHoverEnter}
                     onMouseLeave={handleHoverLeave}
-                    className="anime-card-scroll absolute top-0 h-[85%] w-full overflow-hidden px-3 pb-0 pt-3 text-xs hover:overflow-auto"
+                    className="anime-card-scroll absolute top-0 h-[85%] w-full overflow-hidden pb-0 pl-3 pr-1 pt-3 text-xs hover:overflow-auto"
                     style={{
                         scrollbarGutter: "stable",
                     }}
