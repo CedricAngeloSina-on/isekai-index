@@ -1,10 +1,10 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import AnimeCoverImageAndInfo from "@/components/anime/anime-cover-image-and-info";
 import AnimeStatisticsAndSynopsis from "@/components/anime/anime-statistics-and-synopsis";
 //skeletons
 import AnimeCoverImageAndInfoSkeleton from "@/components/skeleton/anime/anime-cover-image-and-info-skeleton";
 import AnimeStatisticsAndSynopsisSkeleton from "@/components/skeleton/anime/anime-statistics-and-synopsis-skeleton";
-import Link from "next/link";
 
 export default function AnimePage({
     children,
@@ -41,7 +41,7 @@ export default function AnimePage({
                                         }
                                         className="text-slate-400"
                                     >
-                                        <p className="flex justify-center text-base font-semibold capitalize leading-tight tracking-wider">
+                                        <p className="flex justify-center text-base font-medium capitalize leading-tight tracking-wider">
                                             {label}
                                         </p>
                                     </Link>
