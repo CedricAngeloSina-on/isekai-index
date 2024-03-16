@@ -4,6 +4,7 @@ import { getAnimeByIDFull } from "@/utils/getAnimeByIDFull";
 import { PlayCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { checkIfExist } from "@/utils/checkIfExists";
 
 type AnimeDetailsProps = {
     mal_id: number;
@@ -17,7 +18,7 @@ export default async function AnimeStatisticsAndSynopsis({
         <>
             <div className="flex h-auto w-full flex-col space-y-4 p-8 text-left text-slate-400">
                 <p className="text-3xl font-semibold">
-                    {animeData.titles[0].title}
+                    {checkIfExist(animeData.titles[0].title, "", "", "N/A")}
                 </p>
                 <div className="flex h-32 w-full justify-between space-x-3">
                     <div className="flex h-full w-full min-w-min flex-row items-center rounded bg-slate-800">
@@ -29,7 +30,7 @@ export default async function AnimeStatisticsAndSynopsis({
                                 SCORE
                             </Badge>
                             <p className="text-4xl font-bold">
-                                {animeData.score ? animeData.score : "N/A"}
+                                {checkIfExist(animeData.score, "", "", "N/A")}
                             </p>
                         </div>
                         <Separator
@@ -41,43 +42,57 @@ export default async function AnimeStatisticsAndSynopsis({
                                 <p>
                                     Ranked{" "}
                                     <span className="font-extrabold">
-                                        {animeData.rank
-                                            ? "#" + animeData.rank
-                                            : "N/A"}
+                                        {checkIfExist(
+                                            animeData.rank,
+                                            "#",
+                                            "",
+                                            "N/A"
+                                        )}
                                     </span>
                                 </p>
                                 <p>
                                     Popularity{" "}
                                     <span className="font-extrabold">
-                                        {animeData.popularity
-                                            ? "#" + animeData.popularity
-                                            : "N/A"}
+                                        {checkIfExist(
+                                            animeData.popularity,
+                                            "#",
+                                            "",
+                                            "N/A"
+                                        )}
                                     </span>
                                 </p>
                                 <p>
                                     Members{" "}
                                     <span className="font-extrabold">
-                                        {animeData.members
-                                            ? animeData.members
-                                            : "N/A"}
+                                        {checkIfExist(
+                                            animeData.members,
+                                            "",
+                                            "",
+                                            "N/A"
+                                        )}
                                     </span>
                                 </p>
                             </div>
                             <div className="flex h-1/2 flex-row items-center space-x-2.5 pl-6">
                                 <p className="capitalize">
-                                    {animeData.season} {animeData.year}
+                                    {checkIfExist(animeData.season)}{" "}
+                                    {checkIfExist(animeData.year)}
                                 </p>
                                 <Separator
                                     orientation="vertical"
                                     className="h-2/5 bg-slate-400"
                                 />
-                                <p>{animeData.type}</p>
+                                <p>{checkIfExist(animeData.type)}</p>
                                 <Separator
                                     orientation="vertical"
                                     className="h-2/5 bg-slate-400"
                                 />
                                 {animeData.studios.length > 0 && (
-                                    <p>{animeData.studios[0].name}</p>
+                                    <p>
+                                        {checkIfExist(
+                                            animeData.studios[0].name
+                                        )}
+                                    </p>
                                 )}
                             </div>
                         </div>
@@ -99,11 +114,17 @@ export default async function AnimeStatisticsAndSynopsis({
                             />
                             <PlayCircle className="absolute size-12 text-slate-400 transition duration-200 ease-in-out group-hover:text-slate-200" />
                         </Link>
-                        d
                     </div>
                 </div>
                 <p className="text-base font-medium">SYNOPSIS</p>
-                <p className="text-sm">{animeData.synopsis}</p>
+                <p className="text-sm">
+                    {checkIfExist(
+                        animeData.synopsis,
+                        "",
+                        "",
+                        "No synopsis yet."
+                    )}
+                </p>
             </div>
         </>
     ) : null;
