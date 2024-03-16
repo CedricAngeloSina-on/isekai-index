@@ -42,6 +42,7 @@ export default function Footer() {
                             className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Goes to Visual Studio Code."
                         >
                             Visual Studio Code
                         </a>
@@ -51,6 +52,7 @@ export default function Footer() {
                             className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Goes to NextJs."
                         >
                             Next.js
                         </a>
@@ -60,6 +62,7 @@ export default function Footer() {
                             className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Goes to Tailwind CSS."
                         >
                             Tailwind CSS
                         </a>
@@ -69,6 +72,7 @@ export default function Footer() {
                             className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Goes to shadcn/ui"
                         >
                             shadcn/ui
                         </a>
@@ -78,6 +82,7 @@ export default function Footer() {
                             className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Goes to Vercel"
                         >
                             Vercel
                         </a>
@@ -87,6 +92,7 @@ export default function Footer() {
                             className="font-medium text-slate-200 hover:text-sky-500 focus-visible:text-sky-500"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Goes to Vercel's Geist font page"
                         >
                             Geist Font
                         </a>
