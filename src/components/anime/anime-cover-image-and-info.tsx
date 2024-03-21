@@ -10,12 +10,11 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 
-type AnimeDetailsProps = {
-    mal_id: number;
-};
 export default async function AnimeCoverImageAndInfo({
     mal_id,
-}: AnimeDetailsProps) {
+}: {
+    mal_id: number;
+}) {
     const animeData = await getAnimeByIDFull(mal_id);
 
     return animeData ? (
