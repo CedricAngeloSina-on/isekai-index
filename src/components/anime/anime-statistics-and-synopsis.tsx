@@ -116,15 +116,19 @@ export default async function AnimeStatisticsAndSynopsis({
                         </Link>
                     </div>
                 </div>
-                <p className="text-base font-medium">SYNOPSIS</p>
-                <p className="text-sm">
-                    {checkIfExist(
-                        animeData.synopsis,
-                        "",
-                        "",
-                        "No synopsis yet."
-                    )}
-                </p>
+                <div className="space-y-2">
+                    <p className="font-semibold leading-tight tracking-wider">
+                        Synopsis
+                    </p>
+                    <p className="text-sm">
+                        {checkIfExist(
+                            animeData.synopsis,
+                            "",
+                            "",
+                            "No synopsis yet."
+                        )}
+                    </p>
+                </div>
             </div>
         </>
     ) : null;
