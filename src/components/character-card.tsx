@@ -6,7 +6,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Character } from "@/types/jikanCharacter.types";
+import type { Character } from "@/types/jikanCharacter.types";
 import Image from "next/image";
 import { checkIfExist } from "@/utils/checkIfExists";
 

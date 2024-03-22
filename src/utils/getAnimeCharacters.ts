@@ -1,5 +1,5 @@
-import { Character } from "@/types/jikanCharacter.types";
-import { JikanResponse } from "@/types/jikanResponse.types";
+import type { Character } from "@/types/jikanCharacter.types";
+import type { JikanResponse } from "@/types/jikanResponse.types";
 
 export async function getAnimeCharacters(mal_id: number): Promise<Character[]> {
     const allData: Character[] = [];

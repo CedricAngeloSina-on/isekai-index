@@ -1,5 +1,5 @@
-import { Anime } from "@/types/jikanAnime.types";
-import { JikanResponse } from "@/types/jikanResponse.types";
+import type { Anime } from "@/types/jikanAnime.types";
+import type { JikanResponse } from "@/types/jikanResponse.types";
 
 import filterIsekaiAnime from "./filterIsekaiAnime";
 

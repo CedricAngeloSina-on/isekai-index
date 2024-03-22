@@ -14,7 +14,7 @@ import { PlayCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FormatDateRange } from "@/utils/dateFormatter";
-import { Anime } from "@/types/jikanAnime.types";
+import type { Anime } from "@/types/jikanAnime.types";
 
 export default function AnimeCard(props: Anime) {
     const contentRef = useRef<HTMLParagraphElement>(null);
