@@ -20,7 +20,7 @@ export default function SeasonLinks() {
                 {seasons.map((season, index) => (
                     <li
                         key={index}
-                        className="flex flex-col items-center px-4 py-0 text-slate-400 hover:text-slate-200"
+                        className="flex flex-col items-center py-0 pl-4 text-slate-400 hover:text-slate-200"
                     >
                         <Link
                             href={"/" + season.year + "/" + season.name}
