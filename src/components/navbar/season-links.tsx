@@ -16,7 +16,7 @@ export default function SeasonLinks() {
 
     return (
         <nav className="flex h-fit w-full justify-center">
-            <ul className="flex w-full justify-center">
+            <ul className="flex w-full justify-end">
                 {seasons.map((season, index) => (
                     <li
                         key={index}
